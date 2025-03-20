@@ -1,0 +1,210 @@
+/* ===== Navbar Container ===== */
+/* Navbar Wrapper (Full-width background) */
+.navbar-wrapper {
+    width: 100%;
+    background: white;
+    border-bottom: 1px solid #ddd; /* Viền full màn hình */
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05); /* Bóng nhẹ */
+}
+
+/* Navbar Container (Giới hạn nội dung) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Căn giữa nội dung */
+}
+
+
+/* ===== Left Section ===== */
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+/* Create Button */
+.create-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+
+/* ===== Search Bar ===== */
+.search-container {
+    position: relative;
+    width: 500px;
+    margin-right: 100px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: gray;
+    font-size: 18px; /* Làm icon to hơn */
+}
+
+.search-container input {
+    width: 100%;
+    padding: 12px 15px 12px 45px; /* Tăng padding */
+    border-radius: 25px; /* Bo góc đẹp hơn */
+    border: 1px solid #bbb; /* Viền rõ hơn */
+    outline: none;
+    font-size: 16px; /* Chữ to hơn */
+    background: #f1f1f1; /* Nhẹ hơn màu cũ */
+}
+
+
+/* ===== Right Section ===== */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Avatar */
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: gray;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* ===== Dropdown Menu ===== */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: -150px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Links and button inside dropdown */
+.dropdown-menu a,
+.dropdown-menu button {
+    padding: 10px;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+    background: #f1f1f1;
+}
+
+
+/* ===== Login & Register Buttons ===== */
+.login-register-links {
+    display: flex;
+    gap: 20px;
+}
+
+.login-btn, .register-btn {
+    background: black;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-btn {
+    margin-right: 10px;
+}
+
+.register-btn {
+    margin-left: 10px;
+}
+
+
+/* ===== Suggestions List Styles ===== */
+.suggestion-list {
+    position: absolute;
+    top: 50px; /* Adjust based on the input size */
+    left: 0;
+    width: 105%;
+    background-color: #fff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Soft, larger shadow for depth */
+    border-radius: 8px; /* Smooth corners */
+    max-height: 350px; /* Allow for more visible suggestions */
+    overflow-y: auto; /* Scroll if the list gets long */
+    z-index: 1000; /* Ensure it appears above other content */
+    padding: 8px 0; /* More balanced padding */
+    margin: 0;
+    border: 1px solid #ddd; /* Light border around the suggestions */
+    transition: all 0.3s ease-in-out; /* Smooth transition for all changes */
+}
+
+/* Suggestion item styles */
+.suggestion-item {
+    padding: 12px 20px; /* More padding for a clean look */
+    cursor: pointer;
+    font-size: 16px;
+    color: #444; /* Darker text for better readability */
+    font-weight: 500; /* Slightly bolder text */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures content is spread out */
+    transition: background-color 0.3s ease, padding-left 0.2s ease; /* Smooth transitions */
+    text-align: left;
+}
+
+/* Hover effect for each suggestion item */
+.suggestion-item:hover {
+    background-color: #f5f5f5; /* Softer hover color */
+    padding-left: 25px; /* Slide effect on hover */
+    color: #007BFF; /* Change text color on hover for interaction */
+}
+
+/* Optional: Divider line between items */
+.suggestion-item + .suggestion-item {
+    border-top: 1px solid #f0f0f0; /* Subtle separator between items */
+}
+
+/* Icon or small extra feature in the suggestion */
+.suggestion-item .suggestion-icon {
+    margin-left: 10px;
+    font-size: 14px; /* Slightly smaller for icons */
+    color: #bbb; /* Icon color */
+}
+
+/* When suggestion is selected or hovered, the icon becomes visible */
+.suggestion-item:hover .suggestion-icon {
+    color: #007BFF; /* Icon turns blue on hover */
+}
