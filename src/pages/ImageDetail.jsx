@@ -44,7 +44,7 @@ const ImageDetail = () => {
 
     const handleSaveImage = async () => {
         if (!user) {
-            alert('You must be logged in to comment!');
+            alert('You must be logged in to save image!');
         }
         try {
             await apiClient.post(`/savedImage`, { imageId: id, userId: user.userId });
