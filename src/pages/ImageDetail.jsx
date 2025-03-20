@@ -43,6 +43,9 @@ const ImageDetail = () => {
     };
 
     const handleSaveImage = async () => {
+        if (!user) {
+            alert('You must be logged in to comment!');
+        }
         try {
             await apiClient.post(`/savedImage`, { imageId: id, userId: user.userId });
             setIsSaved(true);
@@ -52,6 +55,11 @@ const ImageDetail = () => {
     };
 
     const handleComment = async (e) => {
+        if (!user) {
+            alert('You must be logged in to comment!');
+            setNewComment('');
+            return;
+        }
         if (e.key === 'Enter' && newComment.trim()) {
             e.preventDefault();
             try {
@@ -59,7 +67,7 @@ const ImageDetail = () => {
                 setNewComment('');
                 fetchComments();
             } catch (error) {
-                console.error('Failed to post comment:', error);
+                    console.error('Failed to post comment:', error);
             }
         }
     };
