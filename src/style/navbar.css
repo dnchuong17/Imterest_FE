@@ -1,22 +1,28 @@
+/* Global Box-Sizing Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 /* ===== Navbar Container ===== */
 /* Navbar Wrapper (Full-width background) */
 .navbar-wrapper {
     width: 100%;
     background: white;
-    border-bottom: 1px solid #ddd; /* Viền full màn hình */
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05); /* Bóng nhẹ */
+    border-bottom: 1px solid #ddd; /* Full-width bottom border */
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
 }
 
-/* Navbar Container (Giới hạn nội dung) */
+/* Navbar Container (Content Limit) */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px 20px;
     max-width: 1200px;
-    margin: 0 auto; /* Căn giữa nội dung */
+    margin: 0 auto; /* Center content */
 }
-
 
 /* ===== Left Section ===== */
 .navbar-left {
@@ -43,12 +49,13 @@
     font-weight: bold;
 }
 
-
 /* ===== Search Bar ===== */
+/* Updated to use responsive width rather than fixed width */
 .search-container {
     position: relative;
-    width: 500px;
-    margin-right: 100px;
+    width: 40%;
+    min-width: 200px;
+    margin-right: 0;
 }
 
 .search-icon {
@@ -57,19 +64,18 @@
     top: 50%;
     transform: translateY(-50%);
     color: gray;
-    font-size: 18px; /* Làm icon to hơn */
+    font-size: 18px;
 }
 
 .search-container input {
     width: 100%;
-    padding: 12px 15px 12px 45px; /* Tăng padding */
-    border-radius: 25px; /* Bo góc đẹp hơn */
-    border: 1px solid #bbb; /* Viền rõ hơn */
+    padding: 12px 15px 12px 45px;
+    border-radius: 25px;
+    border: 1px solid #bbb;
     outline: none;
-    font-size: 16px; /* Chữ to hơn */
-    background: #f1f1f1; /* Nhẹ hơn màu cũ */
+    font-size: 16px;
+    background: #f1f1f1;
 }
-
 
 /* ===== Right Section ===== */
 .navbar-right {
@@ -111,7 +117,6 @@
     flex-direction: column;
 }
 
-/* Links and button inside dropdown */
 .dropdown-menu a,
 .dropdown-menu button {
     padding: 10px;
@@ -128,14 +133,14 @@
     background: #f1f1f1;
 }
 
-
 /* ===== Login & Register Buttons ===== */
 .login-register-links {
     display: flex;
     gap: 20px;
 }
 
-.login-btn, .register-btn {
+.login-btn,
+.register-btn {
     background: black;
     color: white;
     padding: 8px 15px;
@@ -152,59 +157,154 @@
     margin-left: 10px;
 }
 
-
 /* ===== Suggestions List Styles ===== */
 .suggestion-list {
     position: absolute;
-    top: 50px; /* Adjust based on the input size */
+    top: 50px; /* Adjusted based on input height */
     left: 0;
     width: 105%;
     background-color: #fff;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Soft, larger shadow for depth */
-    border-radius: 8px; /* Smooth corners */
-    max-height: 350px; /* Allow for more visible suggestions */
-    overflow-y: auto; /* Scroll if the list gets long */
-    z-index: 1000; /* Ensure it appears above other content */
-    padding: 8px 0; /* More balanced padding */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-height: 350px;
+    overflow-y: auto;
+    z-index: 1000;
+    padding: 8px 0;
     margin: 0;
-    border: 1px solid #ddd; /* Light border around the suggestions */
-    transition: all 0.3s ease-in-out; /* Smooth transition for all changes */
+    border: 1px solid #ddd;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Suggestion item styles */
 .suggestion-item {
-    padding: 12px 20px; /* More padding for a clean look */
+    padding: 12px 20px;
     cursor: pointer;
     font-size: 16px;
-    color: #444; /* Darker text for better readability */
-    font-weight: 500; /* Slightly bolder text */
+    color: #444;
+    font-weight: 500;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Ensures content is spread out */
-    transition: background-color 0.3s ease, padding-left 0.2s ease; /* Smooth transitions */
+    justify-content: space-between;
+    transition: background-color 0.3s ease, padding-left 0.2s ease;
     text-align: left;
 }
 
-/* Hover effect for each suggestion item */
 .suggestion-item:hover {
-    background-color: #f5f5f5; /* Softer hover color */
-    padding-left: 25px; /* Slide effect on hover */
-    color: #007BFF; /* Change text color on hover for interaction */
+    background-color: #f5f5f5;
+    padding-left: 25px;
+    color: #007BFF;
 }
 
-/* Optional: Divider line between items */
 .suggestion-item + .suggestion-item {
-    border-top: 1px solid #f0f0f0; /* Subtle separator between items */
+    border-top: 1px solid #f0f0f0;
 }
 
-/* Icon or small extra feature in the suggestion */
 .suggestion-item .suggestion-icon {
     margin-left: 10px;
-    font-size: 14px; /* Slightly smaller for icons */
-    color: #bbb; /* Icon color */
+    font-size: 14px;
+    color: #bbb;
 }
 
-/* When suggestion is selected or hovered, the icon becomes visible */
 .suggestion-item:hover .suggestion-icon {
-    color: #007BFF; /* Icon turns blue on hover */
+    color: #007BFF;
+}
+
+
+/* ===========================
+   Responsive Adjustments
+   =========================== */
+
+/* For screens under 768px */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 12px 10px;
+        gap: 10px;
+    }
+
+    .navbar-left {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    /* Make the search container full width with horizontal padding */
+    .search-container {
+        width: 100%;
+        margin: 0 0 10px 0;
+        padding: 0 10px;
+    }
+
+    .search-container input {
+        padding: 10px 15px 10px 40px;
+        font-size: 14px;
+    }
+
+    .search-icon {
+        left: 20px; /* Adjust if needed */
+        font-size: 16px;
+    }
+
+    .navbar-right {
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .dropdown-menu {
+        right: 0;
+        min-width: 120px;
+    }
+
+    .login-register-links {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .login-btn,
+    .register-btn {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+}
+
+/* For screens under 480px */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 5px;
+        gap: 8px;
+    }
+
+    .logo-image {
+        height: 40px;
+        margin-left: 5px;
+    }
+
+    .search-container input {
+        padding: 8px 10px 8px 35px;
+        font-size: 13px;
+    }
+
+    .search-icon {
+        left: 15px;
+        font-size: 14px;
+    }
+
+    .login-btn,
+    .register-btn {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+
+    .dropdown-menu {
+        min-width: 100px;
+    }
+
+    .suggestion-list {
+        top: 40px;
+    }
 }

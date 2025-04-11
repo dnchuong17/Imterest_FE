@@ -1,13 +1,11 @@
-/* Layout Masonry kiểu Pinterest */
 .gallery-grid {
-    column-count: 4; /* 4 cột */
+    column-count: 4;
     column-gap: 20px;
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Responsive cho mobile */
 @media (max-width: 1024px) {
     .gallery-grid {
         column-count: 3;
@@ -26,11 +24,10 @@
     }
 }
 
-/* Thẻ card hình ảnh */
 .image-card {
     position: relative;
     margin-bottom: 20px;
-    break-inside: avoid; /* Giữ nguyên hình */
+    break-inside: avoid;
     overflow: hidden;
     border-radius: 16px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
@@ -38,13 +35,12 @@
     background: white;
 }
 
-/* Hover nổi lên */
+
 .image-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
 }
 
-/* Ảnh */
 .image-card img {
     width: 100%;
     height: auto;
@@ -53,12 +49,10 @@
     transition: transform 0.3s ease;
 }
 
-/* Zoom nhẹ khi hover */
 .image-card:hover img {
     transform: scale(1.05);
 }
 
-/* Overlay hiện title */
 .image-overlay {
     position: absolute;
     bottom: 0;
@@ -75,12 +69,10 @@
     border-bottom-right-radius: 16px;
 }
 
-/* Hover mới hiện title */
 .image-card:hover .image-overlay {
     opacity: 1;
 }
 
-/* Chữ không bị dài */
 .image-overlay h3 {
     margin: 0;
     white-space: nowrap;
@@ -89,7 +81,6 @@
     text-align: center;
 }
 
-/* Hiệu ứng nút như Pinterest nếu muốn thêm */
 .image-button {
     position: absolute;
     top: 8px;
@@ -107,30 +98,25 @@
     background: rgba(255, 255, 255, 1);
 }
 
-
-/* Style for the container of both sides */
 .container {
     display: flex;
     justify-content: space-between;
     gap: 30px;
-    max-width: 1000px; /* Ensure large enough width for the layout */
+    max-width: 1000px;
     margin: 0 auto;
-    /*flex-wrap: wrap; !* Ensure it works well on smaller screens *!*/
 }
 
-/* Style for each side of the container */
 .left-side, .right-side {
-    width: 48%; /* Adjust width of each section */
+    width: 48%;
 }
 
 .right-side {
-    margin-top: 100px
+    margin-top: 100px;
 }
 
-/* Styling the main heading */
 h2 {
     text-align: center;
-    font-size: 2.5rem;  /* Make the heading larger */
+    font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 20px;
     color: #333;
@@ -200,11 +186,10 @@ label:hover {
     background-color: #45a049;
 }
 
-/* Submit button styles */
 button {
     padding: 10px;
-    background-color: #000; /* Black button */
-    color: white; /* White text */
+    background-color: #000;
+    color: white;
     border-radius: 8px;
     cursor: pointer;
     border: none;
@@ -212,11 +197,11 @@ button {
     transition: background-color 0.3s ease;
 }
 
-/* For mobile responsiveness */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
         gap: 20px;
+        padding: 0 10px;
     }
 
     .left-side, .right-side {
@@ -225,6 +210,16 @@ button {
 
     h2 {
         font-size: 2rem;
+    }
+
+    input[type="text"], input[type="file"], button, label {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .drop-area {
+        padding: 60px;
+        font-size: 16px;
     }
 }
 
@@ -239,9 +234,8 @@ button {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Adjustments for the "Remove Image" button */
 button[type="button"] {
-    background-color: #f44336; /* Red background for remove button */
+    background-color: #f44336;
     color: white;
     padding: 8px 16px;
     border-radius: 8px;
@@ -252,9 +246,30 @@ button[type="button"] {
 }
 
 button[type="button"]:hover {
-    background-color: #d32f2f; /* Darker red when hovered */
+    background-color: #d32f2f;
 }
 
+@media (max-width: 480px) {
+    .gallery-grid {
+        padding: 10px;
+    }
 
+    .drop-area {
+        padding: 40px;
+        font-size: 14px;
+    }
 
+    h2 {
+        font-size: 1.8rem;
+    }
 
+    .container {
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    input[type="text"], input[type="file"], button, label {
+        font-size: 13px;
+        padding: 6px;
+    }
+}

@@ -95,3 +95,15 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .image-content {
+        flex-direction: column;
+    }
+    .image-container,
+    .button-container,
+    .comment-container {
+        width: 100%;
+    }
+}
